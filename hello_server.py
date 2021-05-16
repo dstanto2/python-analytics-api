@@ -1,14 +1,8 @@
-#! /usr/lib/python3.6
+#! /usr/lib/python3.8
 #imports
-#from datetime import datetime
-# import sys
-# print(sys.path)
 import graphene, flask, flask_graphql
 import mongoengine
 from mongoengine.fields import StringField, ReferenceField, ListField
-
-# from flask_graphql import GraphQLView
-# from graphene import ObjectType, Field, String, Schema
 
 # define MongoDB model
 class PageModel(mongoengine.Document):
@@ -66,7 +60,6 @@ schema = graphene.Schema(
 #     }
 # '''
 
-# connect to databaseIn our Tumblelog application we need to store several different types of information. We will need to have a collection of users, so that we may link posts to an individual. We also need to store our different types of posts (eg: text, image and link) in the database. To aid navigation of our Tumblelog, posts may have tags associated with them, so that the list of posts shown to the user may be limited to posts that have been assigned a specific tag. Finally, it would be nice if comments could be added to posts. We’ll start with users, as the other document models are slightly more involved.
 mongoengine.connect(host='mongodb://127.0.0.1:27017/analytics-service', alias='default')
 
 # set up server
